@@ -1,0 +1,27 @@
+int led = 13;                // the pin that the LED is atteched to
+int pir = 2;              // the pin that the sensor is atteched to
+
+void setup() {
+  pinMode(pir, INPUT);    // initialize sensor as an input
+  pinMode(led, OUTPUT);      // initalize LED as an output
+  Serial.begin(9600);        // initialize serial
+}
+
+void loop(){
+  int val = digitalRead(pir);
+  int val2 = digitalRead(led);
+  if(val==HIGH){
+    Serial.print("PIR");
+    Serial.println(val);
+    Serial.print("LED");
+    Serial.println(val2);
+    digitalWrite(led,HIGH);
+  } else {
+    Serial.print("PIR");
+    Serial.println(val);
+    Serial.print("LED");
+    Serial.println(val2);
+    digitalWrite(led,LOW);
+  }
+  delay(100);
+}
